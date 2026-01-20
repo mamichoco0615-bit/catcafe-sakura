@@ -1,0 +1,69 @@
+@use "variables" as v;
+@use "mixin" as m;
+
+// about
+
+
+// /* 画像エリア */
+// .about-images {
+//     display: grid;
+//     grid-template-columns: 2fr 1fr; // ← 左大・右小
+//     gap: 12px;
+//     margin-bottom: 24px;
+// }
+
+// /* 左の大きい画像 */
+// .about-img-main {
+//     width: 100%;
+//     height: 100%;
+//     object-fit: cover;
+//     border-radius: 16px;
+// }
+
+// /* 右の小さい2枚 */
+// .about-sub {
+//     display: grid;
+//     grid-template-rows: 1fr 1fr;
+//     gap: 12px;
+// }
+
+// .about-sub img {
+//     width: 100%;
+//     height: 100%;
+//     object-fit: cover;
+//     border-radius: 16px;
+// }
+
+/* セクション全体：body側の指定を活かすため最小 */
+.aboutSakura{
+  width: min(92vw, 520px);
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* 動画スライダー */
+.videoSlider{
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;     /* 好みで変更OK（縦長にしたいなら 4/3 など） */
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 14px 28px rgba(0,0,0,.12);
+  background: rgba(255,255,255,.55);
+}
+
+.videoSlide{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity .9s ease;
+  pointer-events: none;
+}
+
+.videoSlide.is-active{
+  opacity: 1;
+}
+

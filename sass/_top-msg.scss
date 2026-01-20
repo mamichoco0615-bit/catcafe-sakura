@@ -1,0 +1,31 @@
+@use "variables" as v;
+@use "mixin" as m;
+
+// 寄付のお願い
+
+
+    /* 白い文章カード */
+    .donation-card {
+        width: min(520px, 92%);
+        margin: 0 auto 22px;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 18px;
+        padding: 22px 20px;
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+        text-align: left;
+        /* 文章が読みやすい */
+    }
+
+    .donation-card p {
+        margin: 0 0 18px;
+        font-weight: 900;
+        color: #690505;
+        line-height: 1.9;
+        letter-spacing: 0.02em;
+    }
+
+    .donation-card p:last-child {
+        margin-bottom: 0;
+    }
+
+

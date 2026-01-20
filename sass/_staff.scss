@@ -1,0 +1,145 @@
+@use "variables" as v;
+@use "mixin" as m;
+
+/* =====================
+  猫スタッフ（決定版）
+  ※他CSSとぶつからないよう class を catStaff で統一
+===================== */
+
+
+
+
+
+.catStaff__sub {
+    text-align: center;
+    font-size: 20px;
+    margin: 50px;
+}
+
+/* ---- grid ---- */
+.catStaff__grid {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 26px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    /* スマホ2列 */
+    gap: 22px 18px;
+}
+
+@media (min-width: 700px) {
+    .catStaff__grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        /* タブ3列 */
+    }
+}
+
+@media (min-width: 1024px) {
+    .catStaff__grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        /* PC4列 */
+    }
+}
+
+/* ---- card ---- */
+.catStaff__card {
+    display: grid;
+    justify-items: center;
+    gap: 10px;
+}
+
+/* 丸写真：端末で自然に可変 */
+.catStaff__photo {
+    width: clamp(96px, 26vw, 130px);
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 10px 22px rgba(0, 0, 0, .10);
+    margin: 0;
+}
+
+.catStaff__photo img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+/* ---- text ---- */
+.catStaff__text {
+    margin: 0;
+    text-align: center;
+    font-size: 13px;
+    line-height: 1.4;
+    color: #4a2a2a;
+    font-weight: 600;
+}
+
+.catStaff__name {
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: .04em;
+}
+
+.catStaff__line {
+    display: inline-block;
+}
+
+/* ---- sex tag with paw ---- */
+.catStaff__sex {
+    position: relative;
+    display: inline-block;
+    padding: 4px 10px 4px 26px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 1.2;
+    vertical-align: middle;
+}
+
+.catStaff__sex::before {
+    content: "🐾";
+    position: absolute;
+    left: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 13px;
+}
+
+/* girl */
+.catStaff__sex--girl {
+    color: #b84a6a;
+    background: rgba(255, 159, 160, .25);
+}
+
+.catStaff__sex--girl::before {
+    filter: hue-rotate(320deg) saturate(1.4);
+}
+
+/* boy */
+.catStaff__sex--boy {
+    color: #2f6fa3;
+    background: rgba(120, 180, 230, .25);
+}
+
+.catStaff__sex--boy::before {
+    filter: hue-rotate(200deg) saturate(1.4);
+}
+
+/* ---- hitokoto ---- */
+.catStaff__hitokoto {
+    display: inline-block;
+    margin-top: 6px;
+    padding: 6px 10px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, .75);
+    box-shadow: 0 8px 14px rgba(0, 0, 0, .06);
+    font-weight: 700;
+}
+
+/* 卒業スタッフ：少しやさしく */
+.catStaff__grid--graduate .catStaff__photo {
+    opacity: .92;
+    filter: saturate(.95);
+}

@@ -1,0 +1,531 @@
+@use "variables" as v;
+@use "mixin" as m;
+
+
+/* スマホ基準リセット */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px; // スマホの基準
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%; // ← 100vhじゃない！
+    height: 100%;
+    color: #690505;
+    background-color: #fbeee9;
+
+    font-family: "Fascinate", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+
+// html,
+// body {
+//     margin: 0;
+//     padding: 0;
+//     width: 100vh;
+//     height: 100vh;
+//     color: #690505;
+//     background-color: #fdf3f3;
+
+//     font-family: "Fascinate", system-ui;
+//     font-weight: 400;
+//     font-style: normal;
+
+
+// }
+
+a {
+    text-decoration: none;
+    color: #690505;
+}
+
+li {
+    list-style: none;
+}
+
+.btn:hover {
+    opacity: 0.7;
+}
+
+
+
+/*  LINEリンク  */
+
+.line-btn {
+    width: 90px;
+    /* 好きな大きさに調整OK */
+    height: 200px;
+    z-index: 999;
+
+}
+
+.line-btn-img {
+    width: 80px;
+    /* 中央の画像の大きさ */
+    position: absolute;
+    top: 80%;
+    left: 60%;
+
+    transform: translate(-50%, -50%);
+
+}
+
+
+
+.line-btn {
+    position: fixed;
+    bottom: 50px;
+    right: 30px;
+
+    /* 追加 */
+
+    opacity: 0;
+    transform: translateY(20px);
+    /* 少し下から出てくる */
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    pointer-events: none;
+    /* 非表示中はクリック無効 */
+}
+
+.line-btn.is-show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    /* 表示中だけクリック可 */
+}
+
+/* ホバーしたら変化する */
+.line-btn:hover {
+    transform: scale(1.15);
+    filter: drop-shadow(0 0 12px #f78a8a);
+}
+
+
+.inner {
+    max-width: 520px;
+    margin: 0 auto;
+
+}
+
+.text {
+    font-size: 0.95rem;
+    line-height: 1.9;
+    margin-bottom: 40px;
+    font-weight: bold;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 18px;
+    padding: 30px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+}
+
+// 桜背景
+
+/* 桜ひらひらレイヤー */
+.sakura {
+    position: fixed;
+    inset: 0;
+    pointer-events: none; // ←クリック邪魔しない
+    overflow: hidden;
+    z-index: -1;
+}
+
+// ダミーQR
+
+.qr-dummy {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .4);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+}
+
+.qr-dummy.is-show {
+    display: flex;
+}
+
+.qr-inner {
+    background: #fff;
+    padding: 16px;
+    border-radius: 16px;
+    text-align: center;
+    max-width: 90vw;
+}
+
+.qr-inner img {
+    width: 180px;
+    /* ← サイズはここ */
+    max-width: 70vw;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.qr-close {
+    margin-top: 12px;
+    padding: 8px 18px;
+    border-radius: 999px;
+    border: none;
+    color: #fff;
+    background: #f78a8a;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+main {
+
+    padding: 0 2%;
+
+    section {
+        padding: 64px 16px;
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 60px;
+        font-weight: bold;
+    }
+
+    /* ボタン */
+    .btn-primary {
+        min-width: 200px;
+        margin: 0 auto 30px;
+    }
+
+
+
+    // 肉球仕切り線
+
+    .paw-divider {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        // margin: 56px 0; // ←セクション間の余白も兼ねる
+    }
+
+    .paw-divider img {
+        width: 24px;
+        opacity: 0.6;
+    }
+
+    .paw-divider img {
+        animation: paw-float 3s ease-in-out infinite;
+    }
+
+    .paw-divider img:nth-child(2) {
+        animation-delay: .2s;
+    }
+
+    .paw-divider img:nth-child(3) {
+        animation-delay: .4s;
+    }
+
+    @keyframes paw-float {
+
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-3px);
+        }
+    }
+
+
+
+    /* 肉球バージョン */
+    .sakura__petal.is-paw::before {
+        background: none;
+        border-radius: 0;
+        transform: none;
+
+        /* 絵文字で軽く表現（画像不要） */
+        content: "🐾";
+        display: grid;
+        place-items: center;
+        width: 100%;
+        height: 100%;
+        font-size: calc(var(--size) * 0.9);
+        line-height: 1;
+        opacity: 0.9;
+
+        /* ほんのりピンク寄せ（好みで） */
+        filter: saturate(1.1);
+    }
+
+
+    /* buttons */
+    .btn {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        border-radius: 16px;
+        font-weight: 700;
+        padding: 18px 18px;
+        transition: 0.2s;
+    }
+
+    .btn-primary {
+        background: #FF9FA0;
+        color: #fff;
+        min-width: 220px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .btn-primary:active {
+        transform: translateY(1px);
+    }
+
+    /* 下の情報エリア */
+    .info {
+        padding: 18px 0 40px;
+    }
+
+    .info-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+        align-items: stretch;
+    }
+
+    .card {
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 18px;
+        padding: 16px;
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+    }
+
+
+    .card-text {
+        margin: 6px 0;
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    /* 右側ボタン縦積み */
+    .stack {
+        display: grid;
+        gap: 12px;
+    }
+
+    .btn-ghost {
+        width: 100%;
+        background: #FF9FA0;
+        color: #fff;
+        border-radius: 16px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .btn-ghost:active {
+        transform: translateY(1px);
+    }
+
+    // 猫の手ホバー
+
+    /* =========================
+  Paw Button（外からニュッ）
+========================= */
+    .paw-btn {
+        position: relative;
+        overflow: visible;
+        /* 外から出すので hidden にしない */
+    }
+
+    /* 猫の手 */
+    /* =========================
+  Paw Button：外からニュッ（左右ランダム）
+  ・画像は右向き1枚想定
+  ・左から出る時は反転（--flip）
+========================= */
+    /* 外枠 */
+    .paw-wrap {
+        position: relative;
+        display: inline-block;
+        z-index: 5;
+    }
+
+    /* ボタン */
+    .paw-btn {
+        position: relative;
+
+    }
+
+    /* 猫の手（外枠基準） */
+    .paw-wrap .paw {
+        position: absolute;
+        top: 50%;
+
+        width: 150px;
+        height: 150px;
+
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+
+        pointer-events: none;
+        opacity: 0;
+
+        --flip: 1;
+        --tx: 0px;
+        --ty: 0%;
+
+        filter: drop-shadow(0 14px 22px rgba(0, 0, 0, .16));
+    }
+
+    /* 再生 */
+    .paw-wrap .paw.is-active {
+        animation: paw-pop 0.42s ease-out forwards;
+    }
+
+    /* アニメ */
+    @keyframes paw-pop {
+        0% {
+            opacity: 0;
+            transform: translate(0, -50%) scale(var(--flip), 0.85);
+        }
+
+        70% {
+            opacity: 1;
+            transform:
+                translate(var(--tx), calc(var(--ty) - 50%)) scale(var(--flip), 1.06);
+        }
+
+        100% {
+            opacity: 1;
+            transform:
+                translate(var(--tx), calc(var(--ty) - 50%)) scale(var(--flip), 1);
+        }
+    }
+
+    /* ちょい小さい端末は1列に落とす（安全） */
+    @media (max-width: 360px) {
+        .info-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    /* 花びら1枚 */
+    .sakura__petal {
+        position: absolute;
+        top: -10vh;
+        left: 0;
+        width: var(--size);
+        height: var(--size);
+        opacity: var(--opacity);
+        filter: blur(.2px);
+        transform: translateX(var(--x)) rotate(var(--rot));
+        animation:
+            sakura-fall var(--dur) linear infinite,
+            sakura-sway 3.6s ease-in-out infinite;
+    }
+
+    /* 花びらの形（CSSだけで作る） */
+    .sakura__petal::before {
+        content: "";
+        content: "🌸";
+        display: grid;
+        place-items: center;
+        width: 100%;
+        height: 100%;
+        font-size: calc(var(--size) * 0.9);
+        line-height: 1;
+        opacity: 0.5;
+
+    }
+
+    /* 落下 */
+    @keyframes sakura-fall {
+        to {
+            transform: translateX(var(--x)) translateY(120vh) rotate(calc(var(--rot) + 240deg));
+        }
+    }
+
+    /* ゆらゆら横揺れ */
+    @keyframes sakura-sway {
+
+        0%,
+        100% {
+            margin-left: 0;
+        }
+
+        50% {
+            margin-left: 18px;
+        }
+    }
+
+    /* 動きが苦手な人向け（OS設定に従う） */
+    @media (prefers-reduced-motion: reduce) {
+        .sakura__petal {
+            animation: none;
+        }
+    }
+
+
+}
+
+
+
+footer {
+
+    padding: 16px 0;
+    background-color: #fdf3f3;
+    position: relative;
+
+    /* ロゴ */
+    .footer-logo img {
+        width: 180px;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .footer-paw {
+        position: fixed;
+        bottom: -120px; // ← 最初は画面外
+        width: 200px;
+        pointer-events: none;
+        opacity: 0;
+        transition: all 0.4s ease;
+        z-index: 50;
+    }
+
+    .footer-paw-left {
+        left: -60px;
+        transform: rotate(40deg);
+    }
+
+    .footer-paw-right {
+        right: -60px;
+        transform: rotate(-40deg);
+    }
+
+    /* フッターに来たら出す */
+    .footer-paw.is-show {
+        bottom: -16px; // ← ニョキ！
+        opacity: 1;
+    }
+
+    /* 小さい端末は肉球少し小さく */
+    @media (max-width: 360px) {
+        .footer-paw {
+            width: 120px;
+            bottom: 44px;
+        }
+    }
+
+}

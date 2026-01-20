@@ -1,0 +1,27 @@
+@use "variables" as v;
+@use "mixin" as m;
+
+// 注意事項
+
+    .guide-img img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 18px;
+        object-fit: cover;
+        box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
+        margin-bottom: 20px;
+    }
+
+
+    // .guide-text {
+    //     font-size: 0.95rem;
+    //     line-height: 1.9;
+    //     margin-bottom: 40px;
+    //     font-weight: bold;
+    //     text-align: center;
+    //     background: rgba(255, 255, 255, 0.8);
+    //     border-radius: 18px;
+    //     padding: 30px;
+    //     box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+    // }

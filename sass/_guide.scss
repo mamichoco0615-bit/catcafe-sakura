@@ -1,0 +1,77 @@
+@use "variables" as v;
+@use "mixin" as m;
+
+/* ===== Rules Page ===== */
+
+.rulesWrap {
+    max-width: 520px;
+    margin: 0 auto;
+
+}
+
+
+
+.rulesLead__note  { 
+  margin: 5px 0;
+}
+
+/* 3列グリッド（PC） */
+.rulesGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 2fr);
+    gap: 18px 18px;
+    margin-top: 18px;
+}
+
+/* 1つのルール */
+.ruleItem {
+    background: transparent;
+    text-align: center;
+}
+
+.ruleItem img {
+    width: 112px;
+    height: auto;
+    display: block;
+    margin: 0 auto 10px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .10);
+}
+
+.ruleItem p {
+    margin: 0;
+    font-size: 13px;
+    color: #3f2b2b;
+    line-height: 1.45;
+    font-weight: 700;
+}
+
+/* 下の補足 */
+.rulesFoot {
+    margin-top: 30px;
+    font-size: 1rem;
+    color: #6a4c4c;
+    line-height: 1.7;
+}
+
+/* ===== responsive ===== */
+@media (max-width: 820px) {
+    .rulesGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 520px) {
+    .rulesPage {
+        padding: 40px 14px 56px;
+    }
+
+    .rulesGrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+    }
+
+    .ruleItem img {
+        width: 120px;
+    }
+}

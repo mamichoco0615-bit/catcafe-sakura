@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <title>保護猫カフェさくら</title>
+    <meta name="description" content="猫たちと過ごす、静かな時間。心をほどく、そんな場所です。">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/favicon2.png">
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fascinate&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="header-inner">
+
+            <a href="index.html" class="header-logo"><img src="img/logo.jpg" alt="猫カフェさくら"></a>
+
+
+            <nav id="navi">
+                <a href="index.html" class="navi-logo"><img class="logo" src="img/logo.jpg" alt="猫カフェさくら"></a>
+
+                <ul class="menu">
+                    <li><a href="about.html">猫カフェさくらについて</a></li>
+                    <li><a href="guide.html">注意事項</a></li>
+                    <li><a href="service.html">過ごし方</a></li>
+                    <li><a href="price.html">料金</a></li>
+                    <li><a href="staff.html">猫スタッフ</a></li>
+                    <li><a href="msg.html">ご寄付のお願い</a></li>
+                </ul>
+
+                <a class="btn js-qr-open" href="#">LINEでのご予約はこちら</a>
+
+            </nav>
+
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+        </div>
+
+    </header>
+
+    <main>
+
+
+        <!-- ラインアクセスボタン -->
+        <div class="line-btn">
+            <a href="#" class="js-qr-open">
+                <img src="./img/line_cta_btn.png" class="line-btn-img" alt="LINE予約">
+            </a>
+        </div>
+
+
+        <!-- キャッチ -->
+        <section class="hero">
+
+            <!-- 前景コンテンツ -->
+            <div class="hero-inner">
+                <h1 class="hero-title">保護猫<span class="small">と、</span>優しい時間<span class="small">を。</span></h2>
+                    <p class="hero-lead">
+                        さくら猫と里親希望者が自然に繋がる猫カフェです
+                    </p>
+
+                    <!-- <a href="staff.html" class="btn btn-primary">猫たちを見る</a> -->
+                    <div class="paw-wrap">
+                        <a href="staff.html" class="btn btn-primary paw-btn">
+                            猫たちを見る
+                        </a>
+                        <span class="paw" aria-hidden="true"></span>
+                    </div>
+                    <!-- 猫イラスト -->
+                    <img src="img/maincatimg.png" alt="猫たちのイラスト" class="hero-cats">
+            </div>
+
+            <!-- 下の3ボックス -->
+            <section class="info">
+                <div class="inner">
+                    <div class="info-grid">
+                        <div class="card card-time">
+                            <h3 class="card-title">営業時間</h3>
+                            <p class="card-text">1 1 : 0 0 〜 1 8 : 0 0</p>
+                            <h3 class="card-title">定休日：水曜</p>
+                                <p class="card-text"><a href="tel:xxx-xxx-xxx">T E L xxx - xxx - xxx</a></p>
+                        </div>
+
+                        <div class="stack">
+                            <a class="btn btn-ghost" href="https://instagram.com/" target="_blank" rel="noopener">
+                                <span class="nomal">Instagram</span>を見る
+                            </a>
+                            <a class="btn btn-ghost js-qr-open" href="#">
+                                <span class="nomal">LINE</span>でのご予約はこちら
+                            </a>
+
+                            <div class="qr-dummy" id="qrDummy">
+                                <div class="qr-inner">
+                                    <img src="img/dummy-qr.png" alt="ダミーQR">
+                                    <button type="button" class="qr-close js-qr-close">閉じる</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </section>
+
+        <!-- 肉球仕切り線 -->
+        <div class="paw-divider">
+            <img src="img/section-paw.png" alt="肉球" aria-hidden="true">
+            <img src="img/section-paw.png" alt="肉球" aria-hidden="true">
+            <img src="img/section-paw.png" alt="肉球" aria-hidden="true">
+            <img src="img/section-paw.png" alt="肉球" aria-hidden="true">
+            <img src="img/section-paw.png" alt="肉球" aria-hidden="true">
+            <img src="img/section-paw.png" alt="肉球" aria-hidden="true">
+            <img src="img/section-paw.png" alt="肉球" aria-hidden="true">
+            <img src="img/section-paw.png" alt="肉球" aria-hidden="true">
+            <img src="img/section-paw.png" alt="肉球" aria-hidden="true">
+        </div>
+        <!-- about -->
+        <section class="inner">
+
+            <h2 class="title">猫カフェさくら</h2>
+
+            <!-- 動画スライダー -->
+            <div class="videoSlider" aria-label="猫カフェさくらの動画スライド">
+                <video class="videoSlide is-active" src="video/01.mp4" autoplay muted loop playsinline></video>
+                <video class="videoSlide" src="video/02.mp4" autoplay muted loop playsinline></video>
+                <video class="videoSlide" src="video/03.mp4" autoplay muted loop playsinline></video>
+                <video class="videoSlide" src="video/04.mp4" autoplay muted loop playsinline></video>
+                <video class="videoSlide" src="video/05.mp4" autoplay muted loop playsinline></video>
+            </div>
+
+            <p class="text">
+                ここ猫カフェさくらは、保護された猫たちが安心して過ごしながら、ゆっくりとご縁を待つカフェです。
+                猫たちはそれぞれのペースで、日々を穏やかに過ごしています。
+            </p>
+
+            <a href="about.html" class="btn btn-primary about-btn">詳しくはこちら</a>
+        </section>
+
+        <!-- 肉球仕切り線 -->
+        <div class="paw-divider">
+            <img src="img/section-paw.png" alt="肉球" aria-hidden="true">
+            <img src="img/section-paw.png" alt="肉球" aria-hidden="true">
+            <img src="img/section-paw.png" alt="肉球" aria-hidden="true">
+            <img src="img/section-paw.png" alt="肉球" aria-hidden="true">
+            <img src="img/section-paw.png" alt="肉球" aria-hidden="true">
+            <img src="img/section-paw.png" alt="肉球" aria-hidden="true">
+            <img src="img/section-paw.png" alt="肉球" aria-hidden="true">
+            <img src="img/section-paw.png" alt="肉球" aria-hidden="true">
+            <img src="img/section-paw.png" alt="肉球" aria-hidden="true">
+        </div>
+        <section class="inner">
+
+            <h2 class="guide-title">
+                当店を初めて<br>
+                ご利用される方へ
+            </h2>
+
+            <div class="guide-img">
+                <img src="img/paw.jpg" alt="猫の肉球">
+            </div>
+
+            <!-- <h2 class="guide-title">
+                当店を初めて<br>
+                ご利用される方へ
+            </h2> -->
+
+            <p class="text">
+                猫たちが安心して過ごせるよう、<br>
+                いくつかのお願いがあります。<br>
+                ご来店前にぜひご一読ください。
+            </p>
+
+            <a href="guide.html" class="btn btn-primary guide-btn">注意事項</a>
+        </section>
+
+        <!-- 肉球仕切り線 -->
+        <div class="paw-divider">
+            <img src="img/section-paw.png" alt="肉球" aria-hidden="true">
+            <img src="img/section-paw.png" alt="肉球" aria-hidden="true">
+            <img src="img/section-paw.png" alt="肉球" aria-hidden="true">
+            <img src="img/section-paw.png" alt="肉球" aria-hidden="true">
+            <img src="img/section-paw.png" alt="肉球" aria-hidden="true">
+            <img src="img/section-paw.png" alt="肉球" aria-hidden="true">
+            <img src="img/section-paw.png" alt="肉球" aria-hidden="true">
+            <img src="img/section-paw.png" alt="肉球" aria-hidden="true">
+            <img src="img/section-paw.png" alt="肉球" aria-hidden="true">
+        </div>
+
+
+        <section class="service-inner">
+            <div class="inner">
+                <h2 class="service-title">猫カフェさくらでの<br>過ごし方</h2>
+
+                <div class="service-slider">
+                    <img src="img/service-1.jpg" alt="" class="service-slide">
+                    <img src="img/service-2.jpg" alt="" class="service-slide">
+                    <img src="img/service-3.jpg" alt="" class="service-slide">
+                    <img src="img/service-4.jpg" alt="" class="service-slide">
+                </div>
+
+
+                <p class="text">
+                    猫たちとの時間が、やさしく穏やかなものになるように、<br>
+                    猫カフェさくらでの過ごし方をわかりやすくご案内しています。
+                </p>
+
+                <a href="service.html" class="btn btn-primary">詳しくはこちら</a>
+            </div>
+        </section>
+
+        <!-- 肉球仕切り線 -->
+        <div class="paw-divider">
+            <img src="img/section-paw.png" alt="肉球" aria-hidden="true">
+            <img src="img/section-paw.png" alt="肉球" aria-hidden="true">
+            <img src="img/section-paw.png" alt="肉球" aria-hidden="true">
+            <img src="img/section-paw.png" alt="肉球" aria-hidden="true">
+            <img src="img/section-paw.png" alt="肉球" aria-hidden="true">
+            <img src="img/section-paw.png" alt="肉球" aria-hidden="true">
+            <img src="img/section-paw.png" alt="肉球" aria-hidden="true">
+            <img src="img/section-paw.png" alt="肉球" aria-hidden="true">
+            <img src="img/section-paw.png" alt="肉球" aria-hidden="true">
+        </div>
+
+        <section class="price" id="price">
+            <div class="price__inner">
+                <h2 class="price__title">ご利用料金</h2>
+
+                <div class="price__card">
+                    <ul class="price__list">
+                        <li class="price__item">
+                            <p class="price__time">30分</p>
+                            <p class="price__yen">1000円</p>
+                            <p class="price__note">お試しにどうぞ♪</p>
+                        </li>
+
+                        <li class="price__item">
+                            <p class="price__time">60分</p>
+                            <p class="price__yen">1500円</p>
+                            <p class="price__note">お喋りタイムにちょうどいい</p>
+                        </li>
+
+                        <li class="price__item is-popular">
+                            <p class="price__time">90分</p>
+                            <p class="price__yen">1800円</p>
+                            <p class="price__note">当店一番人気！！</p>
+                            <span class="price__badge" aria-hidden="true">人気!!</span>
+                        </li>
+
+                        <li class="price__item">
+                            <p class="price__time">120分</p>
+                            <p class="price__yen">2000円</p>
+                            <p class="price__note">ゆっくりと過ごしたい方</p>
+                        </li>
+
+                        <li class="price__item price__item--snack">
+                            <p class="price__snack">猫のおやつ</p>
+                            <p class="price__yen">200円</p>
+                            <p class="price__note">※スタッフからお渡しします</p>
+                        </li>
+                    </ul>
+
+
+                    <!-- 右下の猫（飾り） -->
+                    <img src="img/price-cat.png" alt="" class="price__cat" aria-hidden="true">
+                </div>
+
+
+                <a href="price.html" class="btn btn-primary price__btn">ｍｅｎｕ一覧</a>
+            </div>
+        </section>
+
+        <!-- 肉球仕切り線 -->
+        <div class="paw-divider">
+            <img src="img/section-paw.png" alt="肉球" aria-hidden="true">
+            <img src="img/section-paw.png" alt="肉球" aria-hidden="true">
+            <img src="img/section-paw.png" alt="肉球" aria-hidden="true">
+            <img src="img/section-paw.png" alt="肉球" aria-hidden="true">
+            <img src="img/section-paw.png" alt="肉球" aria-hidden="true">
+            <img src="img/section-paw.png" alt="肉球" aria-hidden="true">
+            <img src="img/section-paw.png" alt="肉球" aria-hidden="true">
+            <img src="img/section-paw.png" alt="肉球" aria-hidden="true">
+            <img src="img/section-paw.png" alt="肉球" aria-hidden="true">
+        </div>
+
+        <!-- 猫スタッフ -->
+
+        <section class="inner">
+            <h2 class="staff-title">猫スタッフ</h2>
+
+            <div class="staff-grid">
+                <div class="staff-item">
+                    <img src="img/service-1.jpg" alt="猫スタッフ1" class="staff-img">
+                    <p class="staff-meta">
+                        <span class="staff-sex staff-sex-girl">女の子</span><br>
+                        生後約２か月
+                    </p>
+                </div>
+
+                <div class="staff-item">
+                    <img src="img/staff-2.jpg" alt="猫スタッフ2" class="staff-img">
+                    <p class="staff-meta">
+                        <span class="staff-sex staff-sex-boy">男の子</span><br>
+                        約１歳
+                    </p>
+                </div>
+
+                <div class="staff-item">
+                    <img src="img/staff-3.jpg" alt="猫スタッフ3" class="staff-img">
+                    <p class="staff-meta">
+                        <span class="staff-sex staff-sex-boy">男の子</span><br>
+                        約２歳
+                    </p>
+                </div>
+
+                <div class="staff-item">
+                    <img src="img/staff-4.jpg" alt="猫スタッフ4" class="staff-img">
+                    <p class="staff-meta">
+                        <span class="staff-sex staff-sex-girl">女の子</span><br>
+                        生後約半年
+                    </p>
+                </div>
+            </div>
+
+            <a href="staff.html" class="btn btn-primary staff-btn">猫スタッフ一覧</a>
+        </section>
+
+        <!-- 肉球仕切り線 -->
+        <div class="paw-divider">
+            <img src="img/section-paw.png" alt="肉球" aria-hidden="true">
+            <img src="img/section-paw.png" alt="肉球" aria-hidden="true">
+            <img src="img/section-paw.png" alt="肉球" aria-hidden="true">
+            <img src="img/section-paw.png" alt="肉球" aria-hidden="true">
+            <img src="img/section-paw.png" alt="肉球" aria-hidden="true">
+            <img src="img/section-paw.png" alt="肉球" aria-hidden="true">
+            <img src="img/section-paw.png" alt="肉球" aria-hidden="true">
+            <img src="img/section-paw.png" alt="肉球" aria-hidden="true">
+            <img src="img/section-paw.png" alt="肉球" aria-hidden="true">
+        </div>
+
+
+        <!-- 卒業スタッフ -->
+
+        <section class="inner">
+            <h2 class="staff-title">卒業スタッフ</h2>
+
+            <div class="staff-grid staff-grid-onlyimg">
+                <div class="staff-item">
+                    <img src="img/grad-1.jpg" alt="卒業スタッフ1" class="staff-img">
+                </div>
+                <div class="staff-item">
+                    <img src="img/grad-2.jpg" alt="卒業スタッフ2" class="staff-img">
+                </div>
+                <div class="staff-item">
+                    <img src="img/grad-3.jpg" alt="卒業スタッフ3" class="staff-img">
+                </div>
+                <div class="staff-item">
+                    <img src="img/grad-4.jpg" alt="卒業スタッフ4" class="staff-img">
+                </div>
+            </div>
+
+            <p class="staff-lead">新しいご家族と出会った<br>スタッフたちです。</p>
+
+            <a href="staff.html" class="btn btn-primary staff-btn">卒業スタッフ一覧</a>
+        </section>
+
+        <!-- 肉球仕切り線 -->
+        <div class="paw-divider">
+            <img src="img/section-paw.png" alt="肉球" aria-hidden="true">
+            <img src="img/section-paw.png" alt="肉球" aria-hidden="true">
+            <img src="img/section-paw.png" alt="肉球" aria-hidden="true">
+            <img src="img/section-paw.png" alt="肉球" aria-hidden="true">
+            <img src="img/section-paw.png" alt="肉球" aria-hidden="true">
+            <img src="img/section-paw.png" alt="肉球" aria-hidden="true">
+            <img src="img/section-paw.png" alt="肉球" aria-hidden="true">
+            <img src="img/section-paw.png" alt="肉球" aria-hidden="true">
+            <img src="img/section-paw.png" alt="肉球" aria-hidden="true">
+        </div>
+
+        <section class="donation-inner" id="donation">
+            <h2 class="donation-title">ご寄付のお願い</h2>
+
+            <div class="donation-card">
+                <p>
+                    私たちのカフェは、保護された猫たちが安心して過ごし、
+                    新しい家族と出会うまでの「居場所」です。
+                </p>
+
+                <p>
+                    猫たちのごはん代、医療費、日々のお世話は、
+                    皆さまのあたたかいご支援によって支えられています。
+                </p>
+
+                <p>
+                    無理のない形で構いません。<br>
+                    もし、お気持ちをお寄せいただけましたら、
+                    猫たちの未来につながります。
+                </p>
+
+                <p>
+                    いつも見守ってくださり、ありがとうございます。
+                </p>
+            </div>
+
+            <a href="msg.html" class="btn btn-primary">詳しくはこちら</a>
+
+            <!-- 桜背景 -->
+
+            <div class="sakura" aria-hidden="true"></div>
+
+
+        </section>
+
+    </main>
+
+    <footer id="footer">
+        <!-- 装飾（肉球） -->
+        <img src="img/footer-left.png" alt="猫の手" class="footer-paw footer-paw-left" aria-hidden="true">
+        <img src="img/footer-right.png" alt="猫の手" class="footer-paw footer-paw-right" aria-hidden="true">
+
+        <!-- 下のロゴ -->
+        <div class="footer-logo">
+            <a href="index.html" class="footer-logo"><img src="img/logo.jpg" alt="猫カフェさくら"></a>
+        </div>
+
+    </footer>
+
+
+    <!-- jQuery（CDN） -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- slick（CDN） -->
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <!-- 自分のスクリプト -->
+    <script src="js/main.js"></script>
+
+</body>

@@ -1,0 +1,63 @@
+@use "variables" as v;
+@use "mixin" as m;
+
+// スタッフ猫・卒業猫
+
+.staff-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 26px 22px; // 縦 横
+    justify-items: center;
+    margin-bottom: 28px;
+}
+
+
+.staff-item {
+    width: 100%;
+    display: grid;
+    justify-items: center;
+    gap: 12px;
+}
+
+.staff-img {
+    width: min(160px, 40vw);
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.10);
+}
+
+.staff-meta {
+    margin: 0;
+    font-weight: 800;
+    color: #111;
+    line-height: 1.5;
+}
+
+.staff-sex {
+    font-weight: 900;
+}
+
+.staff-sex-girl {
+    color: #f78a8a;
+}
+
+.staff-sex-boy {
+    color: #3b2db2;
+}
+
+// 青紫っぽい
+
+/* 卒業スタッフはテキスト無しでも高さ揃える */
+.staff-grid-onlyimg .staff-item {
+    gap: 0;
+}
+
+.staff-lead {
+    margin: 10px 0 24px;
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: #690505;
+    line-height: 1.5;
+}

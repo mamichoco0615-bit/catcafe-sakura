@@ -1,0 +1,45 @@
+@use "variables" as v;
+@use "mixin" as m;
+
+/* hero */
+    .hero {
+        // position: relative;
+        text-align: center;
+        padding: 40px 0 40px;
+        // min-height: 85vh;
+        // background: url("../img/backimg.jpg") center 80% / cover no-repeat;
+        // overflow: visible; // ← はみ出しOK
+    }
+
+    .hero-title {
+        font-size: 2rem;
+        line-height: 1.35;
+        margin: 0 0 14px;
+        letter-spacing: 0.02em;
+    }
+
+    .hero-title .small {
+        font-size: 0.8em
+    }
+
+    .hero-lead {
+        font-size: 1rem;
+        line-height: 1.8;
+        margin: 0 0 18px;
+    }
+
+    .info .stack .nomal {
+        font-family: nomal;
+    }
+
+
+
+    .hero-cats {
+        width: clamp(220px, 65vw, 420px);
+        height: auto;
+        margin: 24px auto 0;
+        display: block;
+
+        /* ちょい立体感 */
+        filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.12));
+    }

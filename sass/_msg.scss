@@ -1,0 +1,371 @@
+@use "variables" as v;
+@use "mixin" as m;
+
+/* ===== donate page base ===== */
+.donatePage {
+    background: #fbeee9;
+    color: #6b2a2a;
+}
+
+/* ヒーロー */
+.donateHero {
+    padding: 34px 0 18px;
+    background:
+        radial-gradient(1200px 500px at 50% 0%, rgba(255, 255, 255, .85), rgba(255, 255, 255, 0)),
+        rgba(255, 255, 255, .25);
+}
+
+.donateHero__inner,
+.donateSection__inner {
+    width: min(92vw, 980px);
+    margin: 0 auto;
+}
+
+.donateHero__title {
+    text-align: center;
+    font-size: clamp(22px, 3vw, 30px);
+    margin: 0 0 14px;
+    letter-spacing: .04em;
+}
+
+.donateHero__lead {
+    background: rgba(255, 255, 255, .82);
+    border: 1px solid rgba(255, 159, 160, .25);
+    border-radius: 16px;
+    padding: 18px 16px;
+    line-height: 1.9;
+    box-shadow: 0 10px 26px rgba(107, 42, 42, .08);
+}
+
+/* ボタン */
+.donateHero__cta {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin: 16px 0 0;
+    flex-wrap: wrap;
+}
+
+.donateBtn {
+    appearance: none;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 16px;
+    border-radius: 999px;
+    font-weight: 700;
+    letter-spacing: .02em;
+    transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+}
+
+.donateBtn:active {
+    transform: translateY(1px);
+}
+
+.donateBtn--primary {
+    background: #ff9fa0;
+    color: #fff;
+    box-shadow: 0 10px 22px rgba(255, 159, 160, .35);
+}
+
+.donateBtn--primary:hover {
+    box-shadow: 0 14px 30px rgba(255, 159, 160, .45);
+}
+
+.donateBtn--ghost {
+    background: rgba(255, 255, 255, .75);
+    color: #6b2a2a;
+    border: 1px solid rgba(255, 159, 160, .35);
+}
+
+.donateBtn--small {
+    padding: 10px 14px;
+    font-size: 14px;
+}
+
+.donateBtn--block {
+    width: 100%;
+}
+
+/* セクション */
+.donateSection {
+    padding: 22px 0 34px;
+}
+
+.donateSection--tint {
+    background: rgba(255, 255, 255, .35);
+    border-top: 1px solid rgba(255, 159, 160, .18);
+    border-bottom: 1px solid rgba(255, 159, 160, .18);
+}
+
+.donateSection__title {
+    text-align: center;
+    font-size: 20px;
+    margin: 0 0 12px;
+}
+
+.donateSection__text {
+    text-align: center;
+    line-height: 1.8;
+    margin: 0 auto 18px;
+    max-width: 52em;
+}
+
+/* 単発寄付カード */
+.donateCard {
+    background: rgba(255, 255, 255, .82);
+    border: 1px solid rgba(255, 159, 160, .25);
+    border-radius: 18px;
+    padding: 14px 14px;
+    box-shadow: 0 10px 26px rgba(107, 42, 42, .08);
+}
+
+.donateCard__row {
+    display: grid;
+    grid-template-columns: 44px 1fr auto;
+    gap: 10px 12px;
+    align-items: center;
+}
+
+.donateCard__icon {
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    border-radius: 14px;
+    background: rgba(255, 159, 160, .22);
+}
+
+.donateCard__title {
+    margin: 0 0 2px;
+    font-size: 16px;
+}
+
+.donateCard__desc {
+    margin: 0;
+    opacity: .9;
+}
+
+.donateCard__note {
+    margin: 10px 0 0;
+    font-size: 13px;
+    opacity: .85;
+}
+
+/* プラン */
+.planGrid {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 14px;
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 720px) {
+    .planGrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+    }
+}
+
+.planCard {
+    background: rgba(255, 255, 255, .86);
+    border: 1px solid rgba(255, 159, 160, .22);
+    border-radius: 18px;
+    padding: 16px 14px;
+    box-shadow: 0 10px 26px rgba(107, 42, 42, .08);
+    position: relative;
+}
+
+.planCard--popular {
+    border-color: rgba(255, 159, 160, .55);
+    box-shadow: 0 14px 34px rgba(255, 159, 160, .20);
+}
+
+.planCard__badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font-size: 12px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: rgba(255, 159, 160, .22);
+}
+
+.planCard__name {
+    margin: 0 0 6px;
+    font-size: 16px;
+}
+
+.planCard__price {
+    margin: 0 0 10px;
+    font-size: 14px;
+}
+
+.planCard__price strong {
+    font-size: 22px;
+}
+
+.planCard__list {
+    margin: 0 0 14px;
+    padding-left: 18px;
+    line-height: 1.7;
+    font-size: 14px;
+}
+
+.donateNote {
+    margin: 16px auto 0;
+    max-width: 52em;
+    background: rgba(255, 255, 255, .72);
+    border: 1px dashed rgba(255, 159, 160, .35);
+    border-radius: 16px;
+    padding: 14px;
+}
+
+.donateNote__title {
+    margin: 0 0 6px;
+    font-weight: 800;
+}
+
+.donateNote__text {
+    margin: 0;
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+/* FAQ */
+.faq {
+    display: grid;
+    gap: 10px;
+}
+
+.faqItem {
+    background: rgba(255, 255, 255, .82);
+    border: 1px solid rgba(255, 159, 160, .22);
+    border-radius: 16px;
+    padding: 10px 12px;
+}
+
+.faqItem__q {
+    cursor: pointer;
+    font-weight: 800;
+}
+
+.faqItem__a {
+    padding-top: 8px;
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+/* 下部CTA */
+.donateBottomCta {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 16px;
+}
+
+/* ===== Modal ===== */
+.donateModal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    z-index: 3000;
+}
+
+.donateModal.is-open {
+    display: block;
+}
+
+.donateModal__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, .35);
+}
+
+.donateModal__panel {
+    position: relative;
+    width: min(92vw, 560px);
+    margin: 10vh auto 0;
+    background: rgba(255, 255, 255, .92);
+    border: 1px solid rgba(255, 159, 160, .25);
+    border-radius: 18px;
+    padding: 16px 14px;
+    box-shadow: 0 18px 60px rgba(0, 0, 0, .18);
+}
+
+.donateModal__title {
+    text-align: center;
+    margin: 0 0 12px;
+    font-size: 18px;
+}
+
+.bankBox {
+    background: rgba(255, 159, 160, .10);
+    border-radius: 16px;
+    padding: 12px;
+}
+
+.bankDl {
+    margin: 0;
+}
+
+.bankDl__row {
+    display: grid;
+    grid-template-columns: 7em 1fr;
+    gap: 8px;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, .7);
+}
+
+.bankDl__row:last-child {
+    border-bottom: none;
+}
+
+.bankDl dt {
+    font-weight: 800;
+}
+
+.bankDl dd {
+    margin: 0;
+}
+
+.bankHint {
+    margin-top: 10px;
+    background: rgba(255, 255, 255, .7);
+    border-radius: 14px;
+    padding: 10px;
+}
+
+.bankHint__title {
+    margin: 0 0 4px;
+    font-weight: 800;
+}
+
+.bankHint__text {
+    margin: 0;
+    line-height: 1.7;
+    font-size: 13px;
+}
+
+.donateModal__actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 12px;
+    flex-wrap: wrap;
+}
+
+.donateModal__toast {
+    margin: 10px 0 0;
+    text-align: center;
+    font-size: 13px;
+    opacity: .9;
+    min-height: 1.2em;
+}
