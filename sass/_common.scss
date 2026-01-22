@@ -24,6 +24,9 @@ body {
     font-family: "Fascinate", system-ui;
     font-weight: 400;
     font-style: normal;
+
+
+
 }
 
 // html,
@@ -183,6 +186,7 @@ li {
 }
 
 
+
 main {
 
     padding: 0 2%;
@@ -335,82 +339,6 @@ main {
         transform: translateY(1px);
     }
 
-    // 猫の手ホバー
-
-    /* =========================
-  Paw Button（外からニュッ）
-========================= */
-    .paw-btn {
-        position: relative;
-        overflow: visible;
-        /* 外から出すので hidden にしない */
-    }
-
-    /* 猫の手 */
-    /* =========================
-  Paw Button：外からニュッ（左右ランダム）
-  ・画像は右向き1枚想定
-  ・左から出る時は反転（--flip）
-========================= */
-    /* 外枠 */
-    .paw-wrap {
-        position: relative;
-        display: inline-block;
-        z-index: 5;
-    }
-
-    /* ボタン */
-    .paw-btn {
-        position: relative;
-
-    }
-
-    /* 猫の手（外枠基準） */
-    .paw-wrap .paw {
-        position: absolute;
-        top: 50%;
-
-        width: 150px;
-        height: 150px;
-
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: contain;
-
-        pointer-events: none;
-        opacity: 0;
-
-        --flip: 1;
-        --tx: 0px;
-        --ty: 0%;
-
-        filter: drop-shadow(0 14px 22px rgba(0, 0, 0, .16));
-    }
-
-    /* 再生 */
-    .paw-wrap .paw.is-active {
-        animation: paw-pop 0.42s ease-out forwards;
-    }
-
-    /* アニメ */
-    @keyframes paw-pop {
-        0% {
-            opacity: 0;
-            transform: translate(0, -50%) scale(var(--flip), 0.85);
-        }
-
-        70% {
-            opacity: 1;
-            transform:
-                translate(var(--tx), calc(var(--ty) - 50%)) scale(var(--flip), 1.06);
-        }
-
-        100% {
-            opacity: 1;
-            transform:
-                translate(var(--tx), calc(var(--ty) - 50%)) scale(var(--flip), 1);
-        }
-    }
 
     /* ちょい小さい端末は1列に落とす（安全） */
     @media (max-width: 360px) {
@@ -474,6 +402,8 @@ main {
             animation: none;
         }
     }
+
+
 
 
 }
