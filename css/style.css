@@ -153,20 +153,6 @@ main {
   /* buttons */
   /* 下の情報エリア */
   /* 右側ボタン縦積み */
-  /* =========================
-    Paw Button（外からニュッ）
-  ========================= */
-  /* 猫の手 */
-  /* =========================
-    Paw Button：外からニュッ（左右ランダム）
-    ・画像は右向き1枚想定
-    ・左から出る時は反転（--flip）
-  ========================= */
-  /* 外枠 */
-  /* ボタン */
-  /* 猫の手（外枠基準） */
-  /* 再生 */
-  /* アニメ */
   /* ちょい小さい端末は1列に落とす（安全） */
   /* 花びら1枚 */
   /* 花びらの形（CSSだけで作る） */
@@ -283,51 +269,6 @@ main .btn-ghost {
 main .btn-ghost:active {
   transform: translateY(1px);
 }
-main .paw-btn {
-  position: relative;
-  overflow: visible;
-  /* 外から出すので hidden にしない */
-}
-main .paw-wrap {
-  position: relative;
-  display: inline-block;
-  z-index: 5;
-}
-main .paw-btn {
-  position: relative;
-}
-main .paw-wrap .paw {
-  position: absolute;
-  top: 50%;
-  width: 150px;
-  height: 150px;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  pointer-events: none;
-  opacity: 0;
-  --flip: 1;
-  --tx: 0px;
-  --ty: 0%;
-  filter: drop-shadow(0 14px 22px rgba(0, 0, 0, 0.16));
-}
-main .paw-wrap .paw.is-active {
-  animation: paw-pop 0.42s ease-out forwards;
-}
-@keyframes paw-pop {
-  0% {
-    opacity: 0;
-    transform: translate(0, -50%) scale(var(--flip), 0.85);
-  }
-  70% {
-    opacity: 1;
-    transform: translate(var(--tx), calc(var(--ty) - 50%)) scale(var(--flip), 1.06);
-  }
-  100% {
-    opacity: 1;
-    transform: translate(var(--tx), calc(var(--ty) - 50%)) scale(var(--flip), 1);
-  }
-}
 @media (max-width: 360px) {
   main .info-grid {
     grid-template-columns: 1fr;
@@ -345,7 +286,6 @@ main .sakura__petal {
   animation: sakura-fall var(--dur) linear infinite, sakura-sway 3.6s ease-in-out infinite;
 }
 main .sakura__petal::before {
-  content: "";
   content: "🌸";
   display: grid;
   place-items: center;
@@ -380,7 +320,6 @@ footer {
   position: relative;
   /* ロゴ */
   /* フッターに来たら出す */
-  /* 小さい端末は肉球少し小さく */
 }
 footer .footer-logo img {
   width: 180px;
@@ -409,20 +348,22 @@ footer .footer-paw.is-show {
   bottom: -16px;
   opacity: 1;
 }
-@media (max-width: 360px) {
-  footer .footer-paw {
-    width: 120px;
-    bottom: 44px;
-  }
-}
 
 header {
   padding: 16px 0px;
   background-color: #fdf3f3;
   z-index: 2;
-  /* transition 変化のスピード調整してる */
-  /*ナビ非表示 visibilty-hidden*/
-  /* ナビ表示 visibility-visible*/
+  /* ★ここが超重要：中身を並べてるのは header-inner */
+  /* ===== スマホ：ナビ非表示 ===== */
+  /* ===== スマホ：openで表示 ===== */
+}
+header .header-inner {
+  width: min(92vw, 1100px);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
 }
 header .header-logo img {
   display: block;
@@ -446,7 +387,6 @@ header .hamburger span {
   height: 2px;
   background: #fdf3f3;
   position: absolute;
-  left: 25%;
   left: 25%;
   transition: 0.3s;
 }
@@ -476,13 +416,9 @@ header #navi {
   opacity: 0;
   visibility: hidden;
 }
-header.open {
-  /* span変化する */
-}
 header.open #navi {
   opacity: 1;
   visibility: visible;
-  /* ナビボタンの影 */
 }
 header.open #navi .logo {
   width: 160px;
@@ -493,8 +429,6 @@ header.open #navi .menu {
 }
 header.open #navi .menu li {
   margin-bottom: 20px;
-}
-header.open #navi .menu li {
   position: relative;
   padding-bottom: 6px;
 }
@@ -551,6 +485,66 @@ header.open .hamburger span:nth-child(3) {
   transform: rotate(45deg);
 }
 
+@media (min-width: 768px) {
+  /* ① 中身を並べてる親は header-inner（ここがflexじゃないと潰れる） */
+  header .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+  }
+  /* ② PCはハンバーガー非表示 */
+  header .hamburger {
+    display: none;
+  }
+  /* ③ 最重要：スマホの “header #navi を隠す指定” を同じ強さで解除 */
+  header #navi {
+    display: block;
+    /* まず表示 */
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: none;
+    position: static;
+    /* 全画面fixed解除 */
+    width: auto;
+    height: auto;
+    background: transparent;
+    transition: none;
+    text-align: left;
+    z-index: auto;
+  }
+  /* ④ メニュー横並び */
+  header #navi .menu {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  #navi .menu a {
+    color: #690505;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 8px 10px;
+    border-radius: 10px;
+    position: relative;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+  .menu a:hover {
+    background-color: rgba(247, 138, 138, 0.18);
+    color: #4e0404;
+  }
+  /* ⑤ nav内ロゴはPC不要 */
+  header #navi .navi-logo {
+    display: none;
+  }
+  /* ⑥ nav内ボタンはPCで非表示（要望通り） */
+  header #navi .btn {
+    display: none;
+  }
+}
 /* hero */
 .hero {
   text-align: center;
@@ -945,7 +939,7 @@ header.open .hamburger span:nth-child(3) {
   pointer-events: none;
   transform: rotate(0deg);
   filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.1));
-  z-index: 1;
+  z-index: -1;
 }
 
 /* ===== Rules Page ===== */

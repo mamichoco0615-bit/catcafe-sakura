@@ -1,25 +1,26 @@
 @use "variables" as v;
 @use "mixin" as m;
 
-
 header {
     padding: 16px 0px;
     background-color: #fdf3f3;
-    // .header-inner {
-    //     display: flex;
-    //     justify-content: space-between;
-    //     align-items: center;
-    // }
     z-index: 2;
+
+    /* ★ここが超重要：中身を並べてるのは header-inner */
+    .header-inner {
+        width: min(92vw, 1100px);
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+    }
 
     .header-logo img {
         display: block;
         width: 160px;
         height: auto;
     }
-
-
-    /* transition 変化のスピード調整してる */
 
     .hamburger {
         width: 50px;
@@ -32,37 +33,34 @@ header {
         z-index: 30;
         cursor: pointer;
         transition: 0.3s;
+
+        span {
+            width: 50%;
+            height: 2px;
+            background: #fdf3f3;
+            position: absolute;
+            left: 25%;
+            transition: 0.3s;
+
+            &:nth-child(1) {
+                top: 36%;
+            }
+
+            &:nth-child(2) {
+                top: 50%;
+            }
+
+            &:nth-child(3) {
+                top: 64%;
+            }
+        }
+
+        &:hover {
+            opacity: 0.7;
+        }
     }
 
-    .hamburger span {
-        width: 50%;
-        height: 2px;
-        background: #fdf3f3;
-        position: absolute;
-        left: 25%;
-        left: 25%;
-        transition: 0.3s;
-    }
-
-    .hamburger span:nth-child(1) {
-        top: 36%;
-    }
-
-    .hamburger span:nth-child(2) {
-        top: 50%;
-    }
-
-    .hamburger span:nth-child(3) {
-        top: 64%;
-    }
-
-    .hamburger:hover {
-        opacity: 0.7;
-
-    }
-
-    /*ナビ非表示 visibilty-hidden*/
-
+    /* ===== スマホ：ナビ非表示 ===== */
     #navi {
         width: 100%;
         height: 100vh;
@@ -76,10 +74,12 @@ header {
         transition: all 0.6s ease;
         opacity: 0;
         visibility: hidden;
+
     }
 
-    /* ナビ表示 visibility-visible*/
 
+
+    /* ===== スマホ：openで表示 ===== */
     &.open {
         #navi {
             opacity: 1;
@@ -88,9 +88,7 @@ header {
             .logo {
                 width: 160px;
                 margin-top: 20px;
-
             }
-
 
             .menu {
                 margin: 50px 0 40px;
@@ -98,10 +96,6 @@ header {
 
             .menu li {
                 margin-bottom: 20px;
-            }
-
-
-            .menu li {
                 position: relative;
                 padding-bottom: 6px;
 
@@ -110,7 +104,7 @@ header {
                     position: absolute;
                     left: 50%;
                     bottom: 0;
-                    width: 40%; // ← ★ここで長さ調整
+                    width: 40%;
                     height: 2px;
                     background: #f78a8a;
                     transform: translateX(-50%) scaleX(0);
@@ -138,27 +132,20 @@ header {
                 padding: 20px 0;
                 transition: 0.3s;
                 position: relative;
+
+                &::after {
+                    position: absolute;
+                    content: "";
+                    width: 250px;
+                    border-right: solid 1px #690505;
+                    border-bottom: solid 1px #690505;
+                    padding: 15px 15px;
+                    border-bottom-right-radius: 15px;
+                    right: -6px;
+                    bottom: -6px;
+                }
             }
-
-            /* ナビボタンの影 */
-
-            .btn::after {
-                position: absolute;
-                content: "";
-                width: 250px;
-                border-right: solid 1px #690505;
-                border-bottom: solid 1px #690505;
-                padding: 15px 15px;
-                border-bottom-right-radius: 15px;
-                right: -6px;
-                bottom: -6px;
-            }
-
-
-
         }
-
-        /* span変化する */
 
         .hamburger span:nth-child(1) {
             top: 47%;
@@ -174,5 +161,75 @@ header {
         }
     }
 
-    
+}
+
+@media (min-width: 768px) {
+
+    /* ① 中身を並べてる親は header-inner（ここがflexじゃないと潰れる） */
+    header .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+    }
+
+    /* ② PCはハンバーガー非表示 */
+    header .hamburger {
+        display: none;
+    }
+
+    /* ③ 最重要：スマホの “header #navi を隠す指定” を同じ強さで解除 */
+    header #navi {
+        display: block;
+        /* まず表示 */
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: none;
+
+        position: static;
+        /* 全画面fixed解除 */
+        width: auto;
+        height: auto;
+        background: transparent;
+        transition: none;
+        text-align: left;
+        z-index: auto;
+    }
+
+    /* ④ メニュー横並び */
+    header #navi .menu {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    #navi .menu a {
+        color: #690505;
+        font-weight: 700;
+        text-decoration: none;
+        padding: 8px 10px;
+        border-radius: 10px; // 角丸
+        position: relative;
+        transition: background-color .25s ease, color .25s ease;
+    }
+
+    .menu a:hover {
+        background-color: rgba(247, 138, 138, 0.18); // ふわっとピンク
+        color: #4e0404; // 少し濃く
+    }
+
+
+    /* ⑤ nav内ロゴはPC不要 */
+    header #navi .navi-logo {
+        display: none;
+    }
+
+    /* ⑥ nav内ボタンはPCで非表示（要望通り） */
+    header #navi .btn {
+        display: none;
+    }
 }

@@ -364,7 +364,6 @@ main {
 
     /* 花びらの形（CSSだけで作る） */
     .sakura__petal::before {
-        content: "";
         content: "🌸";
         display: grid;
         place-items: center;
@@ -450,12 +449,6 @@ footer {
         opacity: 1;
     }
 
-    /* 小さい端末は肉球少し小さく */
-    @media (max-width: 360px) {
-        .footer-paw {
-            width: 120px;
-            bottom: 44px;
-        }
-    }
+
 
 }
